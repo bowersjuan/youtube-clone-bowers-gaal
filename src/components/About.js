@@ -3,6 +3,21 @@ const About = () => {
     <div>
       <h2>About</h2>
       <p>
+        <strong>Meet the Devs:</strong>
+        <a target="blank" href={`mailto: bowersjuan@gmail.com`}>
+          Juan Bowers
+        </a>
+        <a target="blank" href="https://github.com/bowersjuan">
+          https://github.com/bowersjuan
+        </a>{" "}
+        <a target="blank" href={`mailto: jonathangaal@pursuit.org`}>
+          Jonathan Gaal
+        </a>
+        <a target="blank" href="https://github.com/Jonathan-Gaal">
+          https://github.com/Jonathan-Gaal
+        </a>
+      </p>
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
         ullamcorper dui et justo interdum, vel egestas eros faucibus. Praesent
         lacus nunc, tempor ac lobortis non, tincidunt eu lorem. Vestibulum in
