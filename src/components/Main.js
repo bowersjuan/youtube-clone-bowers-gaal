@@ -16,20 +16,24 @@ const Main = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    const result = window.localStorage.getItem("videos");
-    console.log(result);
+    const result = window.localStorage.getItem(searchBox);
+
+    if (searchBox.length === 0) {
+      return setVideos([]);
+    }
+
     if (result) {
+      console.log(`retrieving ${searchBox} from local storage`);
       setVideos(JSON.parse(result));
-      console.log("from local storage");
     } else {
       fetch(`${BASE_URL}${reactDevYoutubeAPI}&type=video&q=${searchBox}`)
         .then((res) => res.json())
         .then((res) => {
+          console.log(`I ran a fetch for ${searchBox}`);
+          window.localStorage.setItem(searchBox, JSON.stringify(res));
           setVideos(res);
-          window.localStorage.setItem("videos", JSON.stringify(videos));
         })
         .catch((error) => console.log(error));
-      console.log("I am coming from a new fetch call");
     }
   };
 
