@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Main.css";
 
 const Main = () => {
   const [searchBox, setSearchBox] = useState("");
@@ -12,6 +13,7 @@ const Main = () => {
       <form>
         <label htmlFor="search"></label>
         <input
+          className="searchBox"
           value={searchBox}
           onChange={handleTextChange}
           id="search"
