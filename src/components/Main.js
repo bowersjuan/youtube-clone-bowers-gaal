@@ -15,13 +15,22 @@ const Main = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    fetch(`${BASE_URL}${reactDevYoutubeAPI}&type=video&q=avicii`)
-      .then((res) => res.json())
-      .then((res) => {
-        setVideos(res);
-        window.localStorage.setItem("videos", JSON.stringify(videos));
-      })
-      .catch((error) => console.log(error));
+
+    const result = window.localStorage.getItem("videos");
+    console.log(result);
+    if (result) {
+      setVideos(JSON.parse(result));
+      console.log("from local storage");
+    } else {
+      fetch(`${BASE_URL}${reactDevYoutubeAPI}&type=video&q=${searchBox}`)
+        .then((res) => res.json())
+        .then((res) => {
+          setVideos(res);
+          window.localStorage.setItem("videos", JSON.stringify(videos));
+        })
+        .catch((error) => console.log(error));
+      console.log("I am coming from a new fetch call");
+    }
   };
 
   return (
