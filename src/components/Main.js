@@ -19,11 +19,9 @@ const Main = () => {
       .then((res) => res.json())
       .then((res) => {
         setVideos(res);
+        window.localStorage.setItem("videos", JSON.stringify(videos));
       })
       .catch((error) => console.log(error));
-
-    console.log(videos);
-    // window.localStorage.setItem("searchBox", JSON.stringify(searchBox));
   };
 
   return (
@@ -36,8 +34,7 @@ const Main = () => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"
-        ></input>
+          type="text"></input>
         <button type="submit">Search</button>
       </form>
     </div>
