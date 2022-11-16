@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import YouTube, { YouTubeProps } from "react-youtube";
+import YouTube from "react-youtube";
 
 const Video = ({ videos }) => {
   const { id } = useParams();

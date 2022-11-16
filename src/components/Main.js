@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Video from "./Video";
 import "./Main.css";
-
-import YouTube from "react-youtube";
-
 
 const Main = ({ videos, setVideos }) => {
   const BASE_URL =
