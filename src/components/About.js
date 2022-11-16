@@ -1,4 +1,10 @@
-const About = () => {
+import { useEffect } from "react";
+
+const About = ({ setVideos }) => {
+  useEffect(() => {
+    setVideos([]);
+  }, []);
+
   return (
     <div>
       <h2>About</h2>
