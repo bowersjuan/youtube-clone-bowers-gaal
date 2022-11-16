@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Main.css";
+import YouTube, { YouTubeProps } from "react-youtube";
 
 const BASE_URL =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
@@ -9,11 +10,20 @@ const Main = () => {
   const [videos, setVideos] = useState([]);
   const [searchBox, setSearchBox] = useState("");
 
+  // const opts: YouTubeProps["opts"] = {
+  //   height: "390",
+  //   width: "640",
+  //   playerVars: {
+  //     // https://developers.google.com/youtube/player_parameters
+  //     autoplay: 1,
+  //   },
+  // };
+
   const handleTextChange = (e) => {
     setSearchBox(e.target.value);
   };
 
-  const handleClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const result = window.localStorage.getItem(searchBox);
@@ -43,7 +53,7 @@ const Main = () => {
 
   return (
     <div>
-      <form onSubmit={handleClick}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
         <input
           className="searchBox"
@@ -56,7 +66,13 @@ const Main = () => {
         <button type="submit">Search</button>
       </form>
       {videos.length !== 0 ? (
-        <div>You Made a Search</div>
+        <div>
+          {videos.items.map((video) => {
+            return (
+              <YouTube key={video.id.videoId} videoId={video.id.videoId} />
+            );
+          })}
+        </div>
       ) : (
         <div>No Search Results Yet!, Please submit a search above! </div>
       )}
