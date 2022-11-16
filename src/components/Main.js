@@ -68,9 +68,11 @@ const Main = ({ videos, setVideos }) => {
         <div>
           {videos.items.map((video) => {
             return (
-              <Link to={`/${video.id.videoId}`}>
-                <img src={video.snippet.thumbnails.medium.url} />
-                {/* <Video video={video} /> */}
+              <Link key={video.id.videoId} to={`/${video.id.videoId}`}>
+                <img
+                  src={video.snippet.thumbnails.medium.url}
+                  alt={video.snippet.title}
+                />
               </Link>
             );
           })}

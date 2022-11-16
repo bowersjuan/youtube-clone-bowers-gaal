@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 import YouTube, { YouTubeProps } from "react-youtube";
 
-const Video = ({ videos, video }) => {
+const Video = ({ videos }) => {
   const { id } = useParams();
 
-  return (
-    <div>
-      <YouTube key={video.id.videoId} videoId={video.id.videoId} />
-    </div>
-  );
+  const video = videos.items.find((vid) => {
+    return vid.id.videoId === id;
+  });
+
+  return <YouTube videoId={video.id.videoId} />;
 };
 
 export default Video;
