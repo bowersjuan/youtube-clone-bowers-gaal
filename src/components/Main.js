@@ -26,7 +26,11 @@ const Main = () => {
       console.log(`retrieving ${searchBox} from local storage`);
       setVideos(JSON.parse(result));
     } else {
-      fetch(`${BASE_URL}${reactDevYoutubeAPI}&type=video&q=${searchBox}`)
+      fetch(
+        `${BASE_URL}${reactDevYoutubeAPI}${
+          searchBox ? `&type=video&q=${searchBox}` : ""
+        }`
+      )
         .then((res) => res.json())
         .then((res) => {
           console.log(`I ran a fetch for ${searchBox}`);
@@ -50,6 +54,11 @@ const Main = () => {
           type="text"></input>
         <button type="submit">Search</button>
       </form>
+      {videos.length !== 0 ? (
+        <div>You Made a Search</div>
+      ) : (
+        <div>No Search Results Yet!, Please submit a search above! </div>
+      )}
     </div>
   );
 };
