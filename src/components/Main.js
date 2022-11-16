@@ -1,31 +1,24 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Video from "./Video";
 import "./Main.css";
+
 import YouTube from "react-youtube";
 
-const BASE_URL =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
-const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
 
-const Main = () => {
-  const [videos, setVideos] = useState([]);
-  const [searchBox, setSearchBox] = useState("");
+const Main = ({ videos, setVideos }) => {
+  const BASE_URL =
+    "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
+  const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
 
-  // const opts: YouTubeProps["opts"] = {
-  //   height: "390",
-  //   width: "640",
-  //   playerVars: {
-  //     // https://developers.google.com/youtube/player_parameters
-  //     autoplay: 1,
-  //   },
-  // };
+  // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
 
-  const handleTextChange = (e) => {
-    setSearchBox(e.target.value);
-  };
+  //*************** SUBMIT **************/
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //************* LOCAL STORAGE *********/
     const result = window.localStorage.getItem(searchBox);
 
     if (searchBox.length === 0) {
@@ -51,6 +44,16 @@ const Main = () => {
     }
   };
 
+  //*********** SEARCHBOX ************/
+
+  const [searchBox, setSearchBox] = useState("");
+
+  const handleTextChange = (e) => {
+    setSearchBox(e.target.value);
+  };
+
+  //****************** RETURN ***************/
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -69,7 +72,12 @@ const Main = () => {
         <div>
           {videos.items.map((video) => {
             return (
-              <YouTube key={video.id.videoId} videoId={video.id.videoId} />
+              <Link key={video.id.videoId} to={`/${video.id.videoId}`}>
+                <img
+                  src={video.snippet.thumbnails.medium.url}
+                  alt={video.snippet.title}
+                />
+              </Link>
             );
           })}
         </div>
