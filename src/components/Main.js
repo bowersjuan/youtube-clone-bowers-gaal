@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import Video from "./Video";
 import "./Main.css";
 
+import YouTube from "react-youtube";
+
+
 const Main = ({ videos, setVideos }) => {
   const BASE_URL =
     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
@@ -61,7 +64,8 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"></input>
+          type="text"
+        ></input>
         <button type="submit">Search</button>
       </form>
       {videos.length !== 0 ? (
