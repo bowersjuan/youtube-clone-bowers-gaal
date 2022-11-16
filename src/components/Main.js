@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Main.css";
-import YouTube, { YouTubeProps } from "react-youtube";
+import YouTube from "react-youtube";
 
 const BASE_URL =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
