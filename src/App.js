@@ -17,7 +17,10 @@ function App() {
           element={<Main videos={videos} setVideos={setVideos} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<Video videos={videos} />} />
+        <Route
+          path="/:id"
+          element={<Video videos={videos} setVideos={setVideos} />}
+        />
       </Routes>
     </div>
   );
