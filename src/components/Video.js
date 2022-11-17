@@ -5,10 +5,10 @@ import YouTube from "react-youtube";
 const Video = ({ videos, setVideos }) => {
   const { id } = useParams();
 
-  const [commentsInput, setCommentsInput] = useState({
-    commenter: "",
-    comment: "",
-  });
+  // const [commentsInput, setCommentsInput] = useState({
+  //   commenter: "",
+  //   comment: "",
+  // });
 
   const video = videos.items.find((vid) => {
     return vid.id.videoId === id;
