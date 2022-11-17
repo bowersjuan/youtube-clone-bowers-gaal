@@ -24,6 +24,7 @@ const Main = ({ videos, setVideos }) => {
     if (result) {
       console.log(`retrieving ${searchBox} from local storage`);
       setVideos(JSON.parse(result));
+      setSearchBox("");
     } else {
       fetch(
         `${BASE_URL}${reactDevYoutubeAPI}${
@@ -35,6 +36,7 @@ const Main = ({ videos, setVideos }) => {
           console.log(`I ran a fetch for ${searchBox}`);
           window.localStorage.setItem(searchBox, JSON.stringify(res));
           setVideos(res);
+          setSearchBox("");
         })
         .catch((error) => console.log(error));
     }
