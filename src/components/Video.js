@@ -10,13 +10,13 @@ const Video = ({ videos, setVideos }) => {
   //   comment: "",
   // });
 
-  const video = videos.items.find((vid) => {
-    return vid.id.videoId === id;
-  });
+  // const video = videos.items.find((vid) => {
+  //   return vid.id.videoId === id;
+  // });
 
   return (
     <div className="video">
-      <YouTube videoId={video.id.videoId} />;
+      <YouTube videoId={id} />;
       <form>
         <label htmlFor="commenter">
           Name:
