@@ -1,19 +1,36 @@
+import "./About.css";
 const About = ({ setVideos }) => {
   return (
     <div>
       <h2>About</h2>
       <p>
-        <strong>Meet the Devs:</strong>
-        <a target="blank" href={`mailto: bowersjuan@gmail.com`}>
-          Juan Bowers
+        <strong style={{ display: "block" }}>Meet the Devs:</strong>
+        <a
+          classname="devsEmail"
+          target="blank"
+          href={`mailto: bowersjuan@gmail.com`}
+        >
+          Juan Bowers{" -- "}
         </a>
-        <a target="blank" href="https://github.com/bowersjuan">
+        <a
+          classname="devsGitHub"
+          target="blank"
+          href="https://github.com/bowersjuan"
+        >
           https://github.com/bowersjuan
         </a>{" "}
-        <a target="blank" href={`mailto: jonathangaal@pursuit.org`}>
-          Jonathan Gaal
+        <a
+          classname="devsEmail"
+          target="blank"
+          href={`mailto: jonathangaal@pursuit.org`}
+        >
+          Jonathan Gaal{" -- "}
         </a>
-        <a target="blank" href="https://github.com/Jonathan-Gaal">
+        <a
+          classname="devsGitHub"
+          target="blank"
+          href="https://github.com/Jonathan-Gaal"
+        >
           https://github.com/Jonathan-Gaal
         </a>
       </p>
