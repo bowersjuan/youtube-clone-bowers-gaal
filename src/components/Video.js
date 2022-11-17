@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 
 const Video = ({ videos, setVideos }) => {
   const { id } = useParams();
+
+  const [commentsInput, setCommentsInput] = useState({
+    commenter: "",
+    comment: "",
+  });
 
   const video = videos.items.find((vid) => {
     return vid.id.videoId === id;
@@ -21,6 +27,7 @@ const Video = ({ videos, setVideos }) => {
         </label>
 
         <button type="submit">Add Comment</button>
+        <ul id="commentsUl"></ul>
       </form>
     </div>
   );
