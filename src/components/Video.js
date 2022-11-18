@@ -1,9 +1,18 @@
-// import { useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
-
-const Video = () => {
+const Video = ({ BASE_URL, reactDevYoutubeAPI }) => {
   const { id } = useParams();
+  SINGLEVID_URL = ``;
+
+  useEffect(() => {
+    fetch()
+      .then()
+      .then()
+      .catch(err => {
+        console.error(err);
+      });
+  }, []);
 
   // const [commentsInput, setCommentsInput] = useState({
   //   commenter: "",
