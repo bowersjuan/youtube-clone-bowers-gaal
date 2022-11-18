@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 const Video = ({ BASE_URL, reactDevYoutubeAPI }) => {
   const { id } = useParams();
-  SINGLEVID_URL = ``;
+  // SINGLEVID_URL = ``;
 
   useEffect(() => {
     fetch()
