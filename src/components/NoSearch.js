@@ -1,13 +1,18 @@
-const NoSearch = () => {
-  return (
-    <>
-      <button>Click for Modal</button>
-      <div id="modal" className="w3-modal">
-        <div className="w3-modal-content"></div>
-        <h1> MODAL </h1>
+import "./NoSearch.css";
+
+const NoSearch = ({ showModalBool, setShowModalBool }) => {
+  return showModalBool ? (
+    <div className="modal">
+      <div className="modal-content">
+        <div className="modal-body">Please input a search</div>
+        <div className="modal-footer">
+          <button onClick={() => setShowModalBool(false)} className="button">
+            Close
+          </button>
+        </div>
       </div>
-    </>
-  );
+    </div>
+  ) : null;
 };
 
 export default NoSearch;

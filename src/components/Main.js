@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import NoSearch from "./NoSearch";
 import "./Main.css";
 
 const Main = ({ videos, setVideos }) => {
   const BASE_URL =
     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
   const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
+
+  const [showModalBool, setShowModalBool] = useState(false);
 
   // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
 
@@ -18,7 +21,8 @@ const Main = ({ videos, setVideos }) => {
     const result = window.localStorage.getItem(searchBox);
 
     if (searchBox.length === 0) {
-      return setVideos([]);
+      setShowModalBool(true);
+      return;
     }
 
     if (result) {
@@ -65,6 +69,10 @@ const Main = ({ videos, setVideos }) => {
           type="text"
         ></input>
         <button type="submit">Search</button>
+        <NoSearch
+          showModalBool={showModalBool}
+          setShowModalBool={setShowModalBool}
+        />
       </form>
       {videos.length !== 0 ? (
         <div>
