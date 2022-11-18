@@ -62,15 +62,14 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"
-        ></input>
+          type="text"></input>
         <button type="submit">Search</button>
       </form>
       {videos.length !== 0 ? (
         <div>
           {videos.items.map((video) => {
             return (
-              <Link key={video.id.videoId} to={`/${video.id.videoId}`}>
+              <Link key={video.id.videoId} to={`/video/${video.id.videoId}`}>
                 <img
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}

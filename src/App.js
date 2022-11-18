@@ -18,7 +18,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route
-          path="/:id"
+          path="/video/:id"
           element={<Video videos={videos} setVideos={setVideos} />}
         />
       </Routes>
