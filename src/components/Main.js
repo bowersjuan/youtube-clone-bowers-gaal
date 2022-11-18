@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NoSearch from "./NoSearch";
+import { BASE_URL, queryParam1, queryParam2, queryParam3 } from "../API/url";
 import "./Main.css";
 
 const Main = ({ videos, setVideos }) => {
-  const BASE_URL =
-    "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
-  const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
-
   const [showModalBool, setShowModalBool] = useState(false);
 
   // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
 
   //*************** SUBMIT **************/
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     //************* LOCAL STORAGE *********/
@@ -31,18 +28,18 @@ const Main = ({ videos, setVideos }) => {
       setSearchBox("");
     } else {
       fetch(
-        `${BASE_URL}${reactDevYoutubeAPI}${
-          searchBox ? `&type=video&q=${searchBox}` : ""
+        `${BASE_URL}${queryParam1}&${queryParam2}&${queryParam3}${
+          searchBox ? `${searchBox}` : ""
         }`
       )
-        .then((res) => res.json())
-        .then((res) => {
+        .then(res => res.json())
+        .then(res => {
           console.log(`I ran a fetch for ${searchBox}`);
           window.localStorage.setItem(searchBox, JSON.stringify(res));
           setVideos(res);
           setSearchBox("");
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     }
   };
 
@@ -50,7 +47,7 @@ const Main = ({ videos, setVideos }) => {
 
   const [searchBox, setSearchBox] = useState("");
 
-  const handleTextChange = (e) => {
+  const handleTextChange = e => {
     setSearchBox(e.target.value);
   };
 
@@ -75,7 +72,7 @@ const Main = ({ videos, setVideos }) => {
       </form>
       {videos.length !== 0 ? (
         <div>
-          {videos.items.map((video) => {
+          {videos.items.map(video => {
             return (
               <Link key={video.id.videoId} to={`/video/${video.id.videoId}`}>
                 <img
