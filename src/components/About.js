@@ -9,25 +9,29 @@ const About = ({ setVideos }) => {
         <a
           classname="devsEmail"
           target="blank"
-          href={`mailto: bowersjuan@gmail.com`}>
+          href={`mailto: bowersjuan@gmail.com`}
+        >
           Juan Bowers{" -- "}
         </a>
         <a
           classname="devsGitHub"
           target="blank"
-          href="https://github.com/bowersjuan">
+          href="https://github.com/bowersjuan"
+        >
           https://github.com/bowersjuan
         </a>{" "}
         <a
           classname="devsEmail"
           target="blank"
-          href={`mailto: jonathangaal@pursuit.org`}>
+          href={`mailto: jonathangaal@pursuit.org`}
+        >
           Jonathan Gaal{" -- "}
         </a>
         <a
           classname="devsGitHub"
           target="blank"
-          href="https://github.com/Jonathan-Gaal">
+          href="https://github.com/Jonathan-Gaal"
+        >
           https://github.com/Jonathan-Gaal
         </a>
       </p>
