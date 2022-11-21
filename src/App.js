@@ -6,9 +6,9 @@ import About from "./components/About";
 import Video from "./components/Video";
 import "./App.css";
 
-const BASE_URL =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
-const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
+// const BASE_URL =
+//   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=";
+// const reactDevYoutubeAPI = process.env.REACT_APP_YOUTUBE_API;
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -18,27 +18,10 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <Main
-              videos={videos}
-              setVideos={setVideos}
-              BASE_URL={BASE_URL}
-              reactDevYoutubeAPI={reactDevYoutubeAPI}
-            />
-          }
+          element={<Main videos={videos} setVideos={setVideos} />}
         />
         <Route path="/about" element={<About />} />
-        <Route
-          path="/video/:id"
-          element={
-            <Video
-              videos={videos}
-              setVideos={setVideos}
-              BASE_URL={BASE_URL}
-              reactDevYoutubeAPI={reactDevYoutubeAPI}
-            />
-          }
-        />
+        <Route path="/video/:id" element={<Video />} />
       </Routes>
     </div>
   );
