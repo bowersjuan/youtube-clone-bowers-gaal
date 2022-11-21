@@ -2,6 +2,8 @@ import jonathanGaal from "../assets/jonathan_gaal.jpeg";
 import juanBowers from "../assets/juan_bowers.jpeg";
 import "./About.css";
 
+//
+
 const About = ({ setVideos }) => {
   return (
     <div>
