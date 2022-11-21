@@ -11,7 +11,7 @@ const Main = ({ videos, setVideos }) => {
 
   //*************** SUBMIT **************/
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     //************* LOCAL STORAGE *********/
@@ -32,14 +32,14 @@ const Main = ({ videos, setVideos }) => {
           searchBox ? `${searchBox}` : ""
         }`
       )
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           console.log(`I ran a fetch for ${searchBox}`);
           window.localStorage.setItem(searchBox, JSON.stringify(res));
           setVideos(res);
           setSearchBox("");
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   };
 
@@ -47,7 +47,7 @@ const Main = ({ videos, setVideos }) => {
 
   const [searchBox, setSearchBox] = useState("");
 
-  const handleTextChange = e => {
+  const handleTextChange = (e) => {
     setSearchBox(e.target.value);
   };
 
@@ -73,13 +73,14 @@ const Main = ({ videos, setVideos }) => {
       </form>
       {videos.length !== 0 ? (
         <div>
-          {videos.items.map(video => {
+          {videos.items.map((video) => {
             return (
               <Link key={video.id.videoId} to={`/video/${video.id.videoId}`}>
                 <img
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}
                 />
+                <h4>{video.snippet.title}</h4>
               </Link>
             );
           })}
