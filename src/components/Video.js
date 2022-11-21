@@ -1,27 +1,27 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
-import {
-  BASE_URL,
-  reactDevYoutubeAPI,
-  queryParam1,
-  queryParam2,
-  queryParam3,
-} from "../API/url";
+// import {
+//   BASE_URL,
+//   reactDevYoutubeAPI,
+//   queryParam1,
+//   queryParam2,
+//   queryParam3,
+// } from "../API/url";
 
 const Video = () => {
   const { id } = useParams();
-  const queryParam3 = `id=${id}`;
-  const SINGLEVID_URL = ``;
+  // const queryParam3 = `id=${id}`;
+  // const SINGLEVID_URL = ``;
 
-  useEffect(() => {
-    fetch()
-      .then()
-      .then()
-      .catch(err => {
-        console.error(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch()
+  //     .then()
+  //     .then()
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   // const [commentsInput, setCommentsInput] = useState({
   //   commenter: "",
