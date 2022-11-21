@@ -8,38 +8,59 @@ const About = ({ setVideos }) => {
   return (
     <div>
       <h2>About</h2>
-      <p>
-        <img alt="profile photo of Juan Bowers" src=""></img>
-        <strong style={{ display: "block" }}>Meet the Devs:</strong>
-        <a
-          classname="devsEmail"
-          target="blank"
-          href={`mailto: bowersjuan@gmail.com`}
-        >
-          Juan Bowers{" -- "}
-        </a>
-        <a
-          classname="devsGitHub"
-          target="blank"
-          href="https://github.com/bowersjuan"
-        >
-          https://github.com/bowersjuan
-        </a>{" "}
-        <a
-          classname="devsEmail"
-          target="blank"
-          href={`mailto: jonathangaal@pursuit.org`}
-        >
-          Jonathan Gaal{" -- "}
-        </a>
-        <a
-          classname="devsGitHub"
-          target="blank"
-          href="https://github.com/Jonathan-Gaal"
-        >
-          https://github.com/Jonathan-Gaal
-        </a>
-      </p>
+      <strong style={{ display: "block" }}>Meet the Devs:</strong>
+      <div className="devsInfo">
+        <img
+          className="devsPhoto"
+          alt="App Dev Juan Bowers"
+          src={juanBowers}></img>
+        <img
+          className="devsPhoto"
+          alt="App Dev Jonathan Gaal"
+          src={jonathanGaal}></img>
+
+        <div className="juanLinks">
+          <a
+            className="devsEmail"
+            target="blank"
+            href={`mailto: bowersjuan@gmail.com`}>
+            Juan Bowers{" -- "}
+          </a>
+          <a
+            className="devsGitHub"
+            target="blank"
+            href="https://github.com/bowersjuan">
+            https://github.com/bowersjuan
+          </a>{" "}
+          <p className="bio">
+            Bio: Software Dev in the making currently enrolled in Pursuit.org’s
+            12-Month Full-Stack Dev course. If you don’t catch him coding you
+            can find him playing piano with salsa bands throughout New York
+            City.{" "}
+          </p>
+        </div>
+
+        <div className="jonLinks">
+          <a
+            className="devsEmail"
+            target="blank"
+            href={`mailto: jonathangaal@pursuit.org`}>
+            Jonathan Gaal{" -- "}
+          </a>
+
+          <a
+            className="devsGitHub"
+            target="blank"
+            href="https://github.com/Jonathan-Gaal">
+            https://github.com/Jonathan-Gaal
+          </a>
+          <p className="bio">
+            Bio: I am a growth-oriented Pursuit Fellow (Pursuit Fellowship is an
+            intense 12-month software engineering program with a 9% acceptance
+            rate) with an interest in full-stack web development.{" "}
+          </p>
+        </div>
+      </div>
 
       <div className="description">
         <h3>About Youtube Clone</h3>
