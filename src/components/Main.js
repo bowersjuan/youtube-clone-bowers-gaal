@@ -66,7 +66,8 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"></input>
+          type="text"
+        ></input>
         <button type="submit">Search</button>
         <NoSearch
           showModalBool={showModalBool}
