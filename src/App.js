@@ -21,7 +21,7 @@ function App() {
           element={<Main videos={videos} setVideos={setVideos} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/video/:id" element={<Video />} />
+        <Route path="/videos/:id" element={<Video />} />
       </Routes>
     </div>
   );
