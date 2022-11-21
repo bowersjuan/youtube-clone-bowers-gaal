@@ -4,6 +4,7 @@ const About = ({ setVideos }) => {
     <div>
       <h2>About</h2>
       <p>
+        <img alt="profile photo of Juan Bowers" src=""></img>
         <strong style={{ display: "block" }}>Meet the Devs:</strong>
         <a
           classname="devsEmail"
