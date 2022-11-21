@@ -9,7 +9,7 @@ const Video = ({ BASE_URL, reactDevYoutubeAPI }) => {
     fetch()
       .then()
       .then()
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }, []);
