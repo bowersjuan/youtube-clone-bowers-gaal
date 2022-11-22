@@ -66,7 +66,7 @@ const Main = ({ videos, setVideos }) => {
   //****************** RETURN ***************/
 
   return (
-    <div>
+    <div className="main">
       <form onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
 
@@ -79,7 +79,8 @@ const Main = ({ videos, setVideos }) => {
             min="5"
             max="50"
             value={maxResults}
-            onChange={handleMaxResultsChange}></input>
+            onChange={handleMaxResultsChange}
+          ></input>
         </label>
 
         <input
@@ -88,7 +89,8 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"></input>
+          type="text"
+        ></input>
 
         <button type="submit">Search</button>
         <NoSearch
