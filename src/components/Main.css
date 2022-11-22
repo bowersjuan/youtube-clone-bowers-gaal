@@ -1,3 +1,9 @@
 .searchBox{
     margin-right: .5%;
+    margin-bottom: 10%;
+}
+
+.mainSection{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

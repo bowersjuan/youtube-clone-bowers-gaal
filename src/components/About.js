@@ -33,10 +33,10 @@ const About = ({ setVideos }) => {
             https://github.com/bowersjuan
           </a>{" "}
           <p className="bio">
-            Bio: Software Dev in the making currently enrolled in Pursuit.org’s
-            12-Month Full-Stack Dev course. If you don’t catch him coding you
-            can find him playing piano with salsa bands throughout New York
-            City.{" "}
+            <strong>Bio:</strong> Software Dev in the making currently enrolled
+            in Pursuit.org’s 12-Month Full-Stack Dev course. If you don’t catch
+            him coding you can find him playing piano with salsa bands
+            throughout New York City.{" "}
           </p>
         </div>
 
@@ -55,9 +55,10 @@ const About = ({ setVideos }) => {
             https://github.com/Jonathan-Gaal
           </a>
           <p className="bio">
-            Bio: I am a growth-oriented Pursuit Fellow (Pursuit Fellowship is an
-            intense 12-month software engineering program with a 9% acceptance
-            rate) with an interest in full-stack web development.{" "}
+            <strong>Bio:</strong> I am a growth-oriented Pursuit Fellow (Pursuit
+            Fellowship is an intense 12-month software engineering program with
+            a 9% acceptance rate) with an interest in full-stack web
+            development.{" "}
           </p>
         </div>
       </div>

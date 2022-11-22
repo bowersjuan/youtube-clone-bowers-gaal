@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NoSearch from "./NoSearch";
-import { BASE_URL, queryParam1, queryParam2, queryParam3 } from "../API/url";
+import {
+  BASE_URL,
+  queryParam1,
+  queryParam2,
+  queryParam3,
+  queryParam4,
+} from "../API/url";
 import "./Main.css";
 
 const Main = ({ videos, setVideos }) => {
+  const [maxResults, setMaxResults] = useState(5);
+  let queryParam4 = `maxResults=${maxResults}`;
   const [showModalBool, setShowModalBool] = useState(false);
 
   // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
@@ -28,9 +36,9 @@ const Main = ({ videos, setVideos }) => {
       setSearchBox("");
     } else {
       fetch(
-        `${BASE_URL}${queryParam1}&${queryParam2}&${queryParam3}${
+        `${BASE_URL}${queryParam1}&${queryParam4}&${queryParam3}${
           searchBox ? `${searchBox}` : ""
-        }`
+        }&${queryParam2}`
       )
         .then((res) => res.json())
         .then((res) => {
@@ -51,20 +59,37 @@ const Main = ({ videos, setVideos }) => {
     setSearchBox(e.target.value);
   };
 
+  const handleMaxResultsChange = (e) => {
+    setMaxResults(e.target.value);
+  };
+
   //****************** RETURN ***************/
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
+
+        <label htmlFor="maxSearchResults">
+          {" "}
+          Set number of search results:{" "}
+          <input
+            id="maxSearchResults"
+            type="number"
+            min="5"
+            max="50"
+            value={maxResults}
+            onChange={handleMaxResultsChange}></input>
+        </label>
+
         <input
           className="searchBox"
           value={searchBox}
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"
-        ></input>
+          type="text"></input>
+
         <button type="submit">Search</button>
         <NoSearch
           showModalBool={showModalBool}
@@ -72,7 +97,7 @@ const Main = ({ videos, setVideos }) => {
         />
       </form>
       {videos.length !== 0 ? (
-        <div>
+        <div className="mainSection">
           {videos.items.map((video) => {
             return (
               <Link key={video.id.videoId} to={`/videos/${video.id.videoId}`}>
