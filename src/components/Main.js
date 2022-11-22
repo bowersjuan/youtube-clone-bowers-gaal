@@ -1,18 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NoSearch from "./NoSearch";
-import {
-  BASE_URL,
-  queryParam1,
-  queryParam2,
-  queryParam3,
-  queryParam4,
-} from "../API/url";
+import { BASE_URL, urlSnippet, urlKey, urlTypeVideo } from "../API/url";
 import "./Main.css";
 
 const Main = ({ videos, setVideos }) => {
   const [maxResults, setMaxResults] = useState(5);
-  let queryParam4 = `maxResults=${maxResults}`;
+
   const [showModalBool, setShowModalBool] = useState(false);
 
   // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
@@ -36,9 +30,9 @@ const Main = ({ videos, setVideos }) => {
       setSearchBox("");
     } else {
       fetch(
-        `${BASE_URL}${queryParam1}&${queryParam4}&${queryParam3}${
-          searchBox ? `${searchBox}` : ""
-        }&${queryParam2}`
+        `${BASE_URL}${urlSnippet}${
+          maxResults ? `&maxResults=${maxResults}` : ""
+        }&${urlTypeVideo}${searchBox ? `${searchBox}` : ""}&${urlKey}`
       )
         .then((res) => res.json())
         .then((res) => {
