@@ -6,9 +6,11 @@ import "./About.css";
 
 const About = ({ setVideos }) => {
   return (
-    <div>
+    <div className="aboutPage">
       <h2>About</h2>
-      <strong style={{ display: "block" }}>Meet the Devs:</strong>
+      <p>
+        <strong style={{ display: "block" }}>Meet the Devs:</strong>
+      </p>
       <div className="devsInfo">
         <img
           className="devsPhoto"
@@ -22,13 +24,16 @@ const About = ({ setVideos }) => {
         ></img>
 
         <div className="juanLinks">
+          Contact:{" "}
           <a
             className="devsEmail"
             target="blank"
             href={`mailto: bowersjuan@gmail.com`}
           >
-            Juan Bowers{" -- "}
+            bowersjuan@gmail.com
           </a>
+          <br></br>
+          GitHub:{" "}
           <a
             className="devsGitHub"
             target="blank"
@@ -70,7 +75,10 @@ const About = ({ setVideos }) => {
       </div>
 
       <div className="description">
-        <h3>About Youtube Clone</h3>
+        <p>
+          <strong style={{ display: "block" }}>About Youtube Clone:</strong>
+        </p>
+
         <p>
           Youtube Clone is just what it sounds like, an attempt to replicate the
           basic functionality of Youtube. It allows users to seamlessly enter a

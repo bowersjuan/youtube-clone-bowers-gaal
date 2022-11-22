@@ -1,3 +1,7 @@
+.aboutPage {
+    margin-top: 30px;;
+}
+
 .devsEmail, .devsGitHub{
     color: black;
 }
@@ -27,3 +31,7 @@
 padding-left: 40px;
 padding-right: 40px;}
     
+a:hover {
+    color: blue;
+    font-weight: bold;
+}
