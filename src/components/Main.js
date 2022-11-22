@@ -25,8 +25,15 @@ const Main = ({ videos, setVideos }) => {
     }
 
     if (result) {
+      if (JSON.parse(result).items.length > maxResults) {
+        console.log(JSON.parse(result));
+        setVideos(JSON.parse(result.items.splice(0, maxResults + 1)));
+      }
+
       console.log(`retrieving ${searchBox} from local storage`);
       setVideos(JSON.parse(result));
+      // console.log(JSON.parse(result));
+
       setSearchBox("");
     } else {
       fetch(
@@ -73,8 +80,7 @@ const Main = ({ videos, setVideos }) => {
             min="5"
             max="50"
             value={maxResults}
-            onChange={handleMaxResultsChange}
-          ></input>
+            onChange={handleMaxResultsChange}></input>
         </label>
 
         <input
@@ -83,8 +89,7 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"
-        ></input>
+          type="text"></input>
 
         <button type="submit">Search</button>
         <NoSearch
