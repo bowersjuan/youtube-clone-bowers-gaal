@@ -13,23 +13,27 @@ const About = ({ setVideos }) => {
         <img
           className="devsPhoto"
           alt="App Dev Juan Bowers"
-          src={juanBowers}></img>
+          src={juanBowers}
+        ></img>
         <img
           className="devsPhoto"
           alt="App Dev Jonathan Gaal"
-          src={jonathanGaal}></img>
+          src={jonathanGaal}
+        ></img>
 
         <div className="juanLinks">
           <a
             className="devsEmail"
             target="blank"
-            href={`mailto: bowersjuan@gmail.com`}>
+            href={`mailto: bowersjuan@gmail.com`}
+          >
             Juan Bowers{" -- "}
           </a>
           <a
             className="devsGitHub"
             target="blank"
-            href="https://github.com/bowersjuan">
+            href="https://github.com/bowersjuan"
+          >
             https://github.com/bowersjuan
           </a>{" "}
           <p className="bio">
@@ -44,14 +48,16 @@ const About = ({ setVideos }) => {
           <a
             className="devsEmail"
             target="blank"
-            href={`mailto: jonathangaal@pursuit.org`}>
+            href={`mailto: jonathangaal@pursuit.org`}
+          >
             Jonathan Gaal{" -- "}
           </a>
 
           <a
             className="devsGitHub"
             target="blank"
-            href="https://github.com/Jonathan-Gaal">
+            href="https://github.com/Jonathan-Gaal"
+          >
             https://github.com/Jonathan-Gaal
           </a>
           <p className="bio">
