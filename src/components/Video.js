@@ -1,6 +1,7 @@
 // import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
+import "./Video.css";
 // import {
 //   BASE_URL,
 //   reactDevYoutubeAPI,
@@ -33,13 +34,12 @@ const Video = () => {
       <YouTube videoId={id} />;
       <form>
         <label htmlFor="commenter">
-          Name:
-          <input type="text" id="commenter"></input>
+          Name: <input type="text" id="commenter"></input>
         </label>
         <label htmlFor="comment">
+          {" "}
           Comment: <input type="text" id="comment"></input>{" "}
         </label>
-
         <button type="submit">Add Comment</button>
         <ul id="commentsUl"></ul>
       </form>

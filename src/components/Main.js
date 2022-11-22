@@ -66,15 +66,14 @@ const Main = ({ videos, setVideos }) => {
 
         <label htmlFor="maxSearchResults">
           {" "}
-          Set number of search results:{" "}
+          Number of search results (5-50):{" "}
           <input
-            id="maxSearchResults"
+            className="maxSearchResults"
             type="number"
             min="5"
             max="50"
             value={maxResults}
-            onChange={handleMaxResultsChange}
-          ></input>
+            onChange={handleMaxResultsChange}></input>
         </label>
 
         <input
@@ -83,8 +82,7 @@ const Main = ({ videos, setVideos }) => {
           onChange={handleTextChange}
           id="search"
           placeholder="Search..."
-          type="text"
-        ></input>
+          type="text"></input>
 
         <button type="submit">Search</button>
         <NoSearch
@@ -107,7 +105,9 @@ const Main = ({ videos, setVideos }) => {
           })}
         </div>
       ) : (
-        <div>No Search Results Yet!, Please submit a search above! </div>
+        <div className="noSearchResultsMessage">
+          No Search Results Yet!, Please submit a search above!{" "}
+        </div>
       )}
     </div>
   );

@@ -15,13 +15,11 @@ const About = ({ setVideos }) => {
         <img
           className="devsPhoto"
           alt="App Dev Juan Bowers"
-          src={juanBowers}
-        ></img>
+          src={juanBowers}></img>
         <img
           className="devsPhoto"
           alt="App Dev Jonathan Gaal"
-          src={jonathanGaal}
-        ></img>
+          src={jonathanGaal}></img>
 
         <div className="juanLinks">
           <h2>Juan Bowers</h2>
@@ -29,8 +27,7 @@ const About = ({ setVideos }) => {
           <a
             className="devsEmail"
             target="blank"
-            href={`mailto: bowersjuan@gmail.com`}
-          >
+            href={`mailto: bowersjuan@gmail.com`}>
             bowersjuan@gmail.com
           </a>
           <br></br>
@@ -38,8 +35,7 @@ const About = ({ setVideos }) => {
           <a
             className="devsGitHub"
             target="blank"
-            href="https://github.com/bowersjuan"
-          >
+            href="https://github.com/bowersjuan">
             https://github.com/bowersjuan
           </a>{" "}
           <p className="bio">
@@ -56,8 +52,7 @@ const About = ({ setVideos }) => {
           <a
             className="devsEmail"
             target="blank"
-            href={`mailto: jonathangaal@pursuit.org`}
-          >
+            href={`mailto: jonathangaal@pursuit.org`}>
             jonathangaal@pursuit.org
           </a>
           <br></br>
@@ -65,8 +60,7 @@ const About = ({ setVideos }) => {
           <a
             className="devsGitHub"
             target="blank"
-            href="https://github.com/Jonathan-Gaal"
-          >
+            href="https://github.com/Jonathan-Gaal">
             https://github.com/Jonathan-Gaal
           </a>
           <p className="bio">
@@ -84,28 +78,38 @@ const About = ({ setVideos }) => {
         </p>
         <div className="appDescription">
           <p className="indent">
-            Youtube Clone is just what it sounds like, an attempt to replicate
-            the basic functionality of Youtube. It allows users to seamlessly
-            enter a search query, recieve a list of thumbnails, and click one to
-            see the video of their heart's desire! This brainchild of Devs Juan
-            Bowers & Jonathan Gaal was built using React.js leveraging knowledge
-            of React Components, State Hooks, Fetch Calls, CSS and deployment to
-            Netlify.
+            YouClone is what its name might suggest, an attempt to replicate
+            Youtube's basic functionality, such as: Allowing users to seamlessly
+            input a search query, see a list of thumbnails, and click one to see
+            the video of their heart's desire!
+            <p className="indent">
+              This brainchild of Devs Juan Bowers & Jonathan Gaal was built
+              using React.js leveraging knowledge of React Components, State
+              Hooks, Fetch Calls, CSS and deployment to Netlify.
+            </p>
           </p>
           <p className="indent">
-            The app also implements an efficiency feature to minimize the number
-            of fetch calls made to the Youtube API by saving previous searches
-            to local-storage. Fresh fetches are made for new searches and are in
-            turn saved to local storage etc.
+            The app also leverages the ability to store user searchesto
+            local-storage-- thus minimizing the number of fetch calls made to
+            the Youtube API. Fresh fetches are made for new searches and, are in
+            turn saved.
           </p>
           <p className="indent">
-            The process of making the app is accurately captured in the oh so
-            corny phrase "edu-tainment", both a fun and intensive learning
-            experience. One of the primary lessons learned was thst of managing
-            a collective workflow, a true push and pull sort of thing. Everytime
-            a change to code was made, a push was made, and a pull, thats the
-            secret to avoiding merge conflicts *shudder*. We hope that you enjoy
-            using Youtube Clone for hours of YouTube video viewing fun!
+            The building phase of YouClone is accurately captured in that
+            oh-so-corny phrase "edu-tainment", both a fun and intensive learning
+            adventure. One primary lesson learned (amongst a panapoly of others)
+            was how to manage a dual-dev workflow, a true push and pull sort of
+            thing -- git pun intended. Each time a change was made in the code,
+            a commit and push was made, then a pull, thats the secret to
+            avoiding *shudder* <strong>merge conflicts</strong> *shudder*.
+            <p className="indent">
+              <strong>
+                <h3>
+                  We hope that you enjoy using Youtube Clone for hours of
+                  YouTube viewing fun!
+                </h3>
+              </strong>
+            </p>
           </p>
         </div>
       </div>
