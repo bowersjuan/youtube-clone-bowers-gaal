@@ -7,7 +7,7 @@ import "./About.css";
 const About = ({ setVideos }) => {
   return (
     <div className="aboutPage">
-      <h2>About</h2>
+      <h1>About</h1>
       <p>
         <strong style={{ display: "block" }}>Meet the Devs:</strong>
       </p>
@@ -24,7 +24,8 @@ const About = ({ setVideos }) => {
         ></img>
 
         <div className="juanLinks">
-          Contact:{" "}
+          <h2>Juan Bowers</h2>
+          <strong>Contact: </strong>
           <a
             className="devsEmail"
             target="blank"
@@ -33,7 +34,7 @@ const About = ({ setVideos }) => {
             bowersjuan@gmail.com
           </a>
           <br></br>
-          GitHub:{" "}
+          <strong>GitHub: </strong>
           <a
             className="devsGitHub"
             target="blank"
@@ -50,14 +51,17 @@ const About = ({ setVideos }) => {
         </div>
 
         <div className="jonLinks">
+          <h2>Jonathan Gaal</h2>
+          <strong>Contact: </strong>
           <a
             className="devsEmail"
             target="blank"
             href={`mailto: jonathangaal@pursuit.org`}
           >
-            Jonathan Gaal{" -- "}
+            jonathangaal@pursuit.org
           </a>
-
+          <br></br>
+          <strong>GitHub: </strong>
           <a
             className="devsGitHub"
             target="blank"
@@ -78,26 +82,32 @@ const About = ({ setVideos }) => {
         <p>
           <strong style={{ display: "block" }}>About Youtube Clone:</strong>
         </p>
-
-        <p>
-          Youtube Clone is just what it sounds like, an attempt to replicate the
-          basic functionality of Youtube. It allows users to seamlessly enter a
-          search query, recieve a list of thumbnails, and click one to see the
-          video of their heart's desire! This brainchild of Devs Juan Bowers &
-          Jonathan Gaal was built using React.js leveraging knowledge of React
-          Components, State Hooks, Fetch Calls, CSS and deployment to Netlify.
-          The app also implements an efficiency feature to minimize the number
-          of fetch calls made to the Youtube API by saving previous searches to
-          local-storage. Fresh fetches are made for new searches and are in turn
-          saved to local storage etc. The process of making the app is
-          accurately captured in the oh so corny phrase "edu-tainment", both a
-          fun and intensive learning experience. One of the primary lessons
-          learned was thst of managing a collective workflow, a true push and
-          pull sort of thing. Everytime a change to code was made, a push was
-          made, and a pull, thats the secret to avoiding merge conflicts
-          *shudder*. We hope that you enjoy using Youtube Clone for hours of
-          YouTube video viewing fun!
-        </p>
+        <div className="appDescription">
+          <p className="indent">
+            Youtube Clone is just what it sounds like, an attempt to replicate
+            the basic functionality of Youtube. It allows users to seamlessly
+            enter a search query, recieve a list of thumbnails, and click one to
+            see the video of their heart's desire! This brainchild of Devs Juan
+            Bowers & Jonathan Gaal was built using React.js leveraging knowledge
+            of React Components, State Hooks, Fetch Calls, CSS and deployment to
+            Netlify.
+          </p>
+          <p className="indent">
+            The app also implements an efficiency feature to minimize the number
+            of fetch calls made to the Youtube API by saving previous searches
+            to local-storage. Fresh fetches are made for new searches and are in
+            turn saved to local storage etc.
+          </p>
+          <p className="indent">
+            The process of making the app is accurately captured in the oh so
+            corny phrase "edu-tainment", both a fun and intensive learning
+            experience. One of the primary lessons learned was thst of managing
+            a collective workflow, a true push and pull sort of thing. Everytime
+            a change to code was made, a push was made, and a pull, thats the
+            secret to avoiding merge conflicts *shudder*. We hope that you enjoy
+            using Youtube Clone for hours of YouTube video viewing fun!
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 .aboutPage {
-    margin-top: 30px;;
+    padding-top: 30px;
+    background-color: black;
+    color: white;
 }
 
 .devsEmail, .devsGitHub{
@@ -29,9 +31,26 @@
 
 .bio{padding: 10px;
 padding-left: 40px;
-padding-right: 40px;}
+padding-right: 40px;
+line-height: 1.2;
+text-align: justify;
+}
+
+.appDescription {
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+p.indent {
+    text-indent: 30px;
+}
+
+.devsInfo a {
+    color: white;
+}
     
 a:hover {
-    color: blue;
+    color: red;
     font-weight: bold;
 }
