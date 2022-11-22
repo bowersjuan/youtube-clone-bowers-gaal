@@ -17,7 +17,7 @@ const Main = ({ videos, setVideos }) => {
     e.preventDefault();
 
     //************* LOCAL STORAGE *********/
-    const result = window.localStorage.getItem(searchBox);
+    const result = JSON.parse(window.localStorage.getItem(searchBox));
 
     if (searchBox.length === 0) {
       setShowModalBool(true);
@@ -25,13 +25,17 @@ const Main = ({ videos, setVideos }) => {
     }
 
     if (result) {
-      if (JSON.parse(result).items.length > maxResults) {
-        console.log(JSON.parse(result));
-        setVideos(JSON.parse(result.items.splice(0, maxResults + 1)));
+      if (result.items.length > maxResults) {
+        // console.log(
+        //   "result",
+        //   JSON.parse(result.items.slice(0, maxResults + 1))
+        // );
+
+        setVideos(result.items.slice(0, maxResults + 1));
       }
 
       console.log(`retrieving ${searchBox} from local storage`);
-      setVideos(JSON.parse(result));
+      // setVideos(JSON.parse(result));
       // console.log(JSON.parse(result));
 
       setSearchBox("");
@@ -99,7 +103,7 @@ const Main = ({ videos, setVideos }) => {
       </form>
       {videos.length !== 0 ? (
         <div className="mainSection">
-          {videos.items.map((video) => {
+          {videos?.items?.map((video) => {
             return (
               <Link key={video.id.videoId} to={`/videos/${video.id.videoId}`}>
                 <img
