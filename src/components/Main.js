@@ -5,8 +5,7 @@ import { BASE_URL, urlSnippet, urlKey, urlTypeVideo } from "../API/url";
 import "./Main.css";
 
 const Main = ({ videos, setVideos }) => {
-  const [maxResults, setMaxResults] = useState(5);
-
+  const [maxResults, setMaxResults] = useState(50);
   const [showModalBool, setShowModalBool] = useState(false);
 
   // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
@@ -26,18 +25,12 @@ const Main = ({ videos, setVideos }) => {
 
     if (result) {
       if (result.items.length > maxResults) {
-        // console.log(
-        //   "result",
-        //   JSON.parse(result.items.slice(0, maxResults + 1))
-        // );
-
-        setVideos(result.items.slice(0, maxResults + 1));
+        setVideos({
+          ...result,
+          items: result.items.slice(0, maxResults),
+        });
       }
-
       console.log(`retrieving ${searchBox} from local storage`);
-      // setVideos(JSON.parse(result));
-      // console.log(JSON.parse(result));
-
       setSearchBox("");
     } else {
       fetch(
@@ -77,11 +70,11 @@ const Main = ({ videos, setVideos }) => {
 
         <label htmlFor="maxSearchResults">
           {" "}
-          Number of search results (5-50):{" "}
+          Total Search Results - <em>default 50</em> (1-50):{" "}
           <input
             className="maxSearchResults"
             type="number"
-            min="5"
+            min="1"
             max="50"
             value={maxResults}
             onChange={handleMaxResultsChange}></input>
