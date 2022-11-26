@@ -11,7 +11,7 @@ const Main = ({ videos, setVideos }) => {
   const [showModalBool, setShowModalBool] = useState(false);
 
   const params = {
-    searchBox: searchBox,
+    q: searchBox,
     maxResults: maxResults,
   };
 
@@ -69,7 +69,7 @@ const Main = ({ videos, setVideos }) => {
     <div className="main">
       <form onSubmit={handleSubmit}>
         <label htmlFor="maxSearchResults">
-          Total Search Results ( 1-50, <em>default 50</em> ):{" "}
+          Total Search Results:{" "}
           <input
             className="maxSearchResults"
             type="number"
