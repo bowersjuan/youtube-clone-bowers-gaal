@@ -1,4 +1,13 @@
+ul{
+    display: flex;
+   flex-direction: column;
+   text-align: left;
+   font-family: Helvetica, sans-serif;
+}
 
+li{
+    color: white;
+}
 
 .video{
     height: 100vh;
