@@ -1,93 +1,95 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NoSearch from "./NoSearch";
-import { BASE_URL, urlSnippet, urlKey, urlTypeVideo } from "../API/url";
 import "./Main.css";
+
+import { get } from "../API/fetch";
 
 const Main = ({ videos, setVideos }) => {
   const [maxResults, setMaxResults] = useState(50);
+  const [searchBox, setSearchBox] = useState("");
   const [showModalBool, setShowModalBool] = useState(false);
 
-  // HAS TO BE PASSED DOWN AS PROPS to MAIN & VIDEO
+  const params = {
+    searchBox: searchBox,
+    maxResults: maxResults,
+  };
 
-  //*************** SUBMIT **************/
+  const setData = (res) => {
+    console.log(`I ran a fetch for the search:"${searchBox}"`);
+    window.localStorage.setItem(searchBox, JSON.stringify(res));
+    setVideos(res);
+    setSearchBox("");
+  };
+
+  //************* LOCAL STORAGE *************
+  const result = JSON.parse(window.localStorage.getItem(searchBox));
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //************* LOCAL STORAGE *********/
-    const result = JSON.parse(window.localStorage.getItem(searchBox));
-
+    //************* NO SEARCH MODAL *************
     if (searchBox.length === 0) {
       setShowModalBool(true);
       return;
     }
 
     if (result) {
-      if (result.items.length > maxResults) {
+      // Get data from Local Storage if available
+      if (result.items.length >= maxResults) {
         setVideos({
           ...result,
           items: result.items.slice(0, maxResults),
         });
+      } else if (result.items.length < maxResults) {
+        // Fetch data if more data is needed than is available in Local Storage
+        get(params)
+          .then(setData)
+          .catch((error) => console.error(error));
       }
-      console.log(`retrieving ${searchBox} from local storage`);
+      console.log(`retrieving the search:"${searchBox}" from local storage`);
       setSearchBox("");
     } else {
-      fetch(
-        `${BASE_URL}${urlSnippet}${
-          maxResults ? `&maxResults=${maxResults}` : ""
-        }&${urlTypeVideo}${searchBox ? `${searchBox}` : ""}&${urlKey}`
-      )
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(`I ran a fetch for ${searchBox}`);
-          window.localStorage.setItem(searchBox, JSON.stringify(res));
-          setVideos(res);
-          setSearchBox("");
-        })
-        .catch((error) => console.log(error));
+      // Fetch data if it does not exist in local storage
+      get(params)
+        .then(setData)
+        .catch((error) => console.error(error));
     }
   };
-
-  //*********** SEARCHBOX ************/
-
-  const [searchBox, setSearchBox] = useState("");
 
   const handleTextChange = (e) => {
     setSearchBox(e.target.value);
   };
 
-  const handleMaxResultsChange = (e) => {
+  const handleNumChange = (e) => {
     setMaxResults(e.target.value);
   };
-
-  //****************** RETURN ***************/
 
   return (
     <div className="main">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="search"></label>
-
         <label htmlFor="maxSearchResults">
-          {" "}
-          Total Search Results - <em>default 50</em> (1-50):{" "}
+          Total Search Results ( 1-50, <em>default 50</em> ):{" "}
           <input
             className="maxSearchResults"
             type="number"
+            id="maxSearchResults"
             min="1"
             max="50"
             value={maxResults}
-            onChange={handleMaxResultsChange}></input>
+            onChange={handleNumChange}
+          />
         </label>
-
-        <input
-          className="searchBox"
-          value={searchBox}
-          onChange={handleTextChange}
-          id="search"
-          placeholder="Search..."
-          type="text"></input>
-
+        <label htmlFor="search">
+          <input
+            className="searchBox"
+            type="text"
+            id="search"
+            placeholder="Search..."
+            value={searchBox}
+            onChange={handleTextChange}
+          />
+        </label>
         <button type="submit">Search</button>
         <NoSearch
           showModalBool={showModalBool}
