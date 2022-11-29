@@ -17,9 +17,6 @@ const Video = () => {
     setCommentInput({ ...commentInput, [e.target.id]: e.target.value });
   };
 
-  const commentsToStorage = (comments) =>
-    window.localStorage.setItem(id, JSON.stringify(comments));
-
   const commentsFromStorage = JSON.parse(window.localStorage.getItem(id));
 
   const handleSubmit = (e) => {
@@ -32,8 +29,8 @@ const Video = () => {
   };
 
   useEffect(() => {
-    commentsToStorage(comments);
-  }, [comments]);
+    window.localStorage.setItem(id, JSON.stringify(comments));
+  }, [id, comments]);
 
   return (
     <div className="video">
